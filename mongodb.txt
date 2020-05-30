@@ -1,0 +1,40 @@
+1. relational DB (RDB) : MSSQL MYSQL MariaDB ORCALE SQLite PostgresSQL
+- based on realtional model
+- can't change table schema
+- CRUD by SQL
+
+2. NO SQL(not only SQL) : MongoDB
+- can change table schema
+- fast save, fast searching -> good for big data
+- scalability
+
+3. install MongoDB
+ mongod --dbpath=data (to open server)
+ mongo (to open client)
+
+ 4. mongoDB shell operations
+
+easy
+ - db = confirm current DB
+ - use (DB to use) = change DB
+ - show dbs
+ - db.dropDatabase() = delete DB
+
+collection
+ - db.createCollection('(collection to make)')
+ - show collections
+ - db.(collection to delete).drop() = delete collection
+
+administrating
+ - db.music.insert({key:value,key:value})
+ - db.music.find({},{_id:0,singer:1,title:1})+.pretty() =show only singer and title and pretty it
+ - db.music.find().limit(n) = show n documents
+ - db.music.find({singer: "?"}).pretty = show particular documents
+
+modifying
+ - db.music.update({singer : "?"},{singer:"??", title:"???"}) = find ? singer and change singer name to ?? and its song to ??? 
+ - db.music.update({singer : "?"},{$set : {title: "xxx"}})
+
+removing
+ - db.music.remove({singer : "?"})
+ - db.music.remove({}) = remove all
